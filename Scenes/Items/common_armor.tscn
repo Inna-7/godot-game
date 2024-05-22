@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://wchtm4ctbx3s"]
+
+[ext_resource type="Script" path="res://Scripts/Items/InventoryBody/common_armor.gd" id="1_o7xs1"]
+[ext_resource type="Texture2D" uid="uid://dsvu3jwvxxyq1" path="res://Images/equipments_and_items/common_standard_armor_small.png" id="2_s4er2"]
+[ext_resource type="Texture2D" uid="uid://cu31n7771w4ig" path="res://Images/hud/info.png" id="3_ql1ip"]
+[ext_resource type="AudioStream" uid="uid://ci5wilun4cc2u" path="res://SoundFX/magical_1.ogg" id="4_gakat"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1sx4b"]
+size = Vector2(7, 7)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_prohc"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="CommonArmor" type="StaticBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_o7xs1")
+
+[node name="Armor" type="Sprite2D" parent="."]
+scale = Vector2(0.116667, 0.116667)
+texture = ExtResource("2_s4er2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1sx4b")
+
+[node name="Info" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, -9.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_ql1ip")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_prohc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_gakat")

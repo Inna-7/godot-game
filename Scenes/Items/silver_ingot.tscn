@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqu32xkrte0nd"]
+
+[ext_resource type="Script" path="res://Scripts/Items/InventoryBody/silver_ingot.gd" id="1_oqvuu"]
+[ext_resource type="Texture2D" uid="uid://cakhggmvi7khr" path="res://Images/equipments_and_items/silver_ingot.png" id="2_07r6k"]
+[ext_resource type="Texture2D" uid="uid://cu31n7771w4ig" path="res://Images/hud/info.png" id="2_stn7k"]
+[ext_resource type="AudioStream" uid="uid://dy7bpx7v24cfy" path="res://SoundFX/magical_4.ogg" id="4_2yp25"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rfyg"]
+size = Vector2(24, 20)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_77psb"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="SilverIngot" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_oqvuu")
+
+[node name="SilverIngot" type="Sprite2D" parent="."]
+scale = Vector2(0.785714, 0.833333)
+texture = ExtResource("2_07r6k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1rfyg")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_77psb")
+
+[node name="Info" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, -17)
+texture = ExtResource("2_stn7k")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2yp25")

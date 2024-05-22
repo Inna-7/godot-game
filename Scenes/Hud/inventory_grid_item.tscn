@@ -1,0 +1,295 @@
+[gd_scene load_steps=8 format=3 uid="uid://73jan8to0wn7"]
+
+[ext_resource type="Script" path="res://Scripts/inventory_grid_item.gd" id="1_vr0rb"]
+[ext_resource type="StyleBox" uid="uid://bq2c63fexm4mw" path="res://Styles/WAXButton.tres" id="2_kybhu"]
+[ext_resource type="StyleBox" uid="uid://cpwuxfiiuaa2l" path="res://Styles/WAXButtonHover.tres" id="3_nx06p"]
+[ext_resource type="PackedScene" uid="uid://bdxxygcgvxx52" path="res://Scenes/Hud/action_keys_hold.tscn" id="4_oxeno"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_klgi2"]
+bg_color = Color(0.6, 0.6, 0.6, 0.168627)
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.0627451, 0.203922, 0.203922, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5j3rj"]
+bg_color = Color(0.607843, 0.0431373, 0.435294, 0.419608)
+corner_radius_top_left = 15
+corner_radius_bottom_left = 15
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xamjx"]
+bg_color = Color(0.6, 0.152941, 0, 0.419608)
+corner_radius_top_left = 15
+corner_radius_bottom_left = 15
+corner_detail = 1
+
+[node name="InventoryGridItem" type="Node2D"]
+script = ExtResource("1_vr0rb")
+
+[node name="SpritePlaceHolder" type="Node2D" parent="."]
+position = Vector2(12, 12)
+
+[node name="action_keys_hold" parent="." instance=ExtResource("4_oxeno")]
+visible = false
+visibility_layer = 2
+offset_left = -34.0
+offset_top = 25.0
+offset_right = 64.0
+offset_bottom = 79.0
+scale = Vector2(0.994714, 1.00508)
+
+[node name="ButtonUse" type="Button" parent="action_keys_hold"]
+show_behind_parent = true
+layout_mode = 1
+offset_left = 2.01063
+offset_top = 0.994946
+offset_right = 17.0106
+offset_bottom = 12.9949
+scale = Vector2(1.67238, 1.03552)
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("2_kybhu")
+theme_override_styles/hover = ExtResource("3_nx06p")
+theme_override_styles/pressed = ExtResource("2_kybhu")
+text = "Use"
+
+[node name="ButtonDrop" type="Button" parent="action_keys_hold"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -28.6334
+offset_top = 0.994948
+offset_right = -8.63335
+offset_bottom = 12.9949
+grow_horizontal = 0
+scale = Vector2(1.37069, 1.08708)
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("2_kybhu")
+theme_override_styles/hover = ExtResource("3_nx06p")
+theme_override_styles/pressed = ExtResource("2_kybhu")
+text = "Drop"
+
+[node name="ItemName" type="Label" parent="action_keys_hold"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -43.9734
+offset_top = -25.1465
+offset_right = 92.0266
+offset_bottom = -5.14649
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.64779, 0.765645)
+theme_override_font_sizes/font_size = 13
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemLevel" type="Label" parent="action_keys_hold"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.611
+anchor_right = 0.611
+offset_left = -20.1545
+offset_right = 19.8455
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 6
+
+[node name="ItemHealthStatus" type="Label" parent="action_keys_hold"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -102.331
+offset_right = -62.3314
+offset_bottom = 26.0
+grow_horizontal = 0
+
+[node name="ItemCollection" type="Label" parent="action_keys_hold"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.917
+anchor_right = 0.5
+anchor_bottom = 0.917
+offset_left = -20.156
+offset_top = -30.0132
+offset_right = 19.844
+offset_bottom = -15.0132
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="in_crafting_keys" parent="." instance=ExtResource("4_oxeno")]
+visible = false
+visibility_layer = 2
+offset_left = -37.0
+offset_top = -50.0
+offset_right = 61.0
+offset_bottom = 4.0
+scale = Vector2(0.994714, 1.00508)
+
+[node name="ButtonRemove" type="Button" parent="in_crafting_keys"]
+show_behind_parent = true
+layout_mode = 1
+offset_left = 2.01063
+offset_top = 0.994946
+offset_right = 17.0106
+offset_bottom = 12.9949
+scale = Vector2(1.67238, 1.03552)
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = ExtResource("2_kybhu")
+theme_override_styles/hover = ExtResource("3_nx06p")
+theme_override_styles/pressed = ExtResource("2_kybhu")
+text = "Remove"
+
+[node name="ItemName" type="Label" parent="in_crafting_keys"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -43.9734
+offset_top = -25.1465
+offset_right = 92.0266
+offset_bottom = -5.14649
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.64779, 0.765645)
+theme_override_font_sizes/font_size = 13
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ItemCollection" type="Label" parent="in_crafting_keys"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.94
+anchor_right = 0.5
+anchor_bottom = 0.94
+offset_left = -20.156
+offset_top = -18.4164
+offset_right = 19.844
+offset_bottom = -5.41644
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 8
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 25.0
+offset_bottom = 25.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_klgi2")
+
+[node name="ItemQuantity" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 25.0
+offset_bottom = 28.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 7
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Panel/ItemQuantity"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 1.0
+offset_top = 18.0
+offset_right = 12.0
+offset_bottom = 39.0
+rotation = 3.94665
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5j3rj")
+
+[node name="ItemQuantity2" type="Label" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 7.0
+offset_top = 14.0
+offset_right = 16.0
+offset_bottom = 28.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 7
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Panel/ItemQuantity2"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 19.0
+offset_right = 21.0
+offset_bottom = 42.0
+rotation = 3.94665
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5j3rj")
+
+[node name="ItemDamage" type="Label" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 11.0
+offset_right = 26.0
+offset_bottom = 14.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 7
+text = "-100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="Panel/ItemDamage"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 12.0
+offset_bottom = 11.0
+rotation = 6.28319
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xamjx")
+
+[node name="CraftingTotal" type="Label" parent="Panel"]
+visible = false
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 25.0
+offset_bottom = 28.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 7
+text = "/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="action_keys_hold/ButtonUse" to="." method="_on_button_use_mouse_entered"]
+[connection signal="mouse_exited" from="action_keys_hold/ButtonUse" to="." method="_on_button_use_mouse_exited"]
+[connection signal="pressed" from="action_keys_hold/ButtonUse" to="." method="_on_button_use_pressed"]
+[connection signal="mouse_entered" from="action_keys_hold/ButtonDrop" to="." method="_on_button_drop_mouse_entered"]
+[connection signal="mouse_exited" from="action_keys_hold/ButtonDrop" to="." method="_on_button_drop_mouse_exited"]
+[connection signal="pressed" from="action_keys_hold/ButtonDrop" to="." method="_on_button_drop_pressed"]
+[connection signal="mouse_entered" from="in_crafting_keys/ButtonRemove" to="." method="_on_button_remove_mouse_entered"]
+[connection signal="mouse_exited" from="in_crafting_keys/ButtonRemove" to="." method="_on_button_remove_mouse_exited"]
+[connection signal="pressed" from="in_crafting_keys/ButtonRemove" to="." method="_on_button_remove_pressed"]

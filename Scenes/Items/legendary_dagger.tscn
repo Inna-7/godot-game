@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkk5wkdg1gabn"]
+
+[ext_resource type="Texture2D" uid="uid://bac5lde5gw7r8" path="res://Images/equipments_and_items/legendary_dagger.png" id="1_8r2uf"]
+[ext_resource type="Script" path="res://Scripts/Items/InventoryBody/legendary_dagger.gd" id="1_64wya"]
+[ext_resource type="Texture2D" uid="uid://cu31n7771w4ig" path="res://Images/hud/info.png" id="2_dyxjv"]
+[ext_resource type="AudioStream" uid="uid://bknvqdmtf8r5m" path="res://SoundFX/magical_2.ogg" id="3_hvu47"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lvooo"]
+size = Vector2(14, 14)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_7g8j6"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="LegendaryDagger" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_64wya")
+
+[node name="LegendaryDagger" type="Sprite2D" parent="."]
+position = Vector2(0.5, -0.5)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("1_8r2uf")
+flip_h = true
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lvooo")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_7g8j6")
+
+[node name="Info" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, -16)
+texture = ExtResource("2_dyxjv")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_hvu47")

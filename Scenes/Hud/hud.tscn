@@ -1,0 +1,1558 @@
+[gd_scene load_steps=47 format=3 uid="uid://c0fec6vq5gca7"]
+
+[ext_resource type="Script" path="res://Scripts/hud.gd" id="1_w4ptl"]
+[ext_resource type="StyleBox" uid="uid://bq2c63fexm4mw" path="res://Styles/WAXButton.tres" id="2_85hnq"]
+[ext_resource type="StyleBox" uid="uid://cpwuxfiiuaa2l" path="res://Styles/WAXButtonHover.tres" id="3_x3r6t"]
+[ext_resource type="StyleBox" uid="uid://ckveitsasybmy" path="res://Styles/WAXButtonPressed.tres" id="4_5mjjx"]
+[ext_resource type="Texture2D" uid="uid://c2ih5upga7486" path="res://Images/hud/bag.png" id="4_tiwas"]
+[ext_resource type="StyleBox" uid="uid://c3x4gwwshbqf7" path="res://Styles/WAXButtonDisabled.tres" id="5_a6g6v"]
+[ext_resource type="PackedScene" uid="uid://c4gli4c8o16ej" path="res://Scenes/Hud/dialog_panel.tscn" id="5_u1hya"]
+[ext_resource type="Texture2D" uid="uid://d36f5bjfbe2ld" path="res://Images/human/female/female_human_still_image_front.png" id="6_rq0ec"]
+[ext_resource type="PackedScene" uid="uid://ugm3omfgg482" path="res://Scenes/Hud/item_slot.tscn" id="7_2jdf5"]
+[ext_resource type="Theme" uid="uid://b7l752ryympuk" path="res://Styles/TabButton.tres" id="7_g2bcv"]
+[ext_resource type="Texture2D" uid="uid://bli308n2x8paa" path="res://Images/hud/AllTabIco.png" id="7_ndnk0"]
+[ext_resource type="Texture2D" uid="uid://clidxd1g286f6" path="res://Images/hud/diskette.png" id="8_5xoe5"]
+[ext_resource type="Texture2D" uid="uid://c2660gibaq7gq" path="res://Images/hud/WeaponIcon.png" id="8_x5y1s"]
+[ext_resource type="Texture2D" uid="uid://cmdyp5vy3dwmt" path="res://Images/hud/MiningEquIcon.png" id="9_vdu2e"]
+[ext_resource type="Texture2D" uid="uid://b6o5n15u77xsa" path="res://Images/hud/consumablesIcon.png" id="9_yqobi"]
+[ext_resource type="Texture2D" uid="uid://duxs6fckciq8d" path="res://Images/hud/help.png" id="13_n34n0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vphv"]
+bg_color = Color(0.188235, 0.505882, 0.580392, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y5mwo"]
+bg_color = Color(0, 0.0431373, 0.0588235, 0.607843)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_33tgb"]
+bg_color = Color(0.0392157, 0.152941, 0.152941, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.0784314, 0.113725, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4dkm0"]
+bg_color = Color(0.145098, 0.380392, 0.380392, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0.0784314, 0.113725, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vidwt"]
+bg_color = Color(1, 1, 1, 0)
+draw_center = false
+border_color = Color(0, 0.0784314, 0.113725, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8win3"]
+bg_color = Color(0.129412, 0.129412, 0.129412, 0.266667)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.164706)
+shadow_size = 2
+shadow_offset = Vector2(0, 0.836)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7kwqj"]
+bg_color = Color(0.627451, 0.462745, 0.427451, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 0.976471)
+shadow_size = 2
+shadow_offset = Vector2(0, 2.128)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4nqx"]
+bg_color = Color(0.184314, 0.00784314, 0.0509804, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kj4oh"]
+bg_color = Color(0.184314, 0.00784314, 0.0509804, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvv01"]
+bg_color = Color(0.156863, 0.156863, 0.156863, 0.392157)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w43pv"]
+bg_color = Color(0.121569, 0.113725, 0.6, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id="Animation_wbgb8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel2:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("healthprompt:custom_minimum_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("magichealthprompt:custom_minimum_size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_un5yl"]
+resource_name = "header_animation"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2.5),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 44)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel2:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2.5),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(160, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("healthprompt:custom_minimum_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1, 2.5),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(140, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("magichealthprompt:custom_minimum_size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1, 2.5),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(140, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sjd16"]
+_data = {
+"RESET": SubResource("Animation_wbgb8"),
+"hud_animation": SubResource("Animation_un5yl")
+}
+
+[sub_resource type="Animation" id="Animation_w07sh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AttackButton:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("attackprompt:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BattleChargeUpProgressBar:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-128, 114)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BattleChargeUpLabel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-128, 140)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("magicprompt:custom_minimum_size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8vxtd"]
+resource_name = "attack_start"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AttackButton:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(118, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("attackprompt:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(140, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BattleChargeUpProgressBar:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(-128, 114), Vector2(6, 114)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BattleChargeUpLabel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(-128, 140), Vector2(6, 140)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("magicprompt:custom_minimum_size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(140, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ch3ui"]
+resource_name = "attack_stopped"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("attackprompt:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(140, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackButton:custom_minimum_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(118, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BattleChargeUpProgressBar:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(6, 114), Vector2(-128, 114)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BattleChargeUpLabel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(6, 140), Vector2(-128, 140)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("magicprompt:custom_minimum_size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(140, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8dbvi"]
+_data = {
+"RESET": SubResource("Animation_w07sh"),
+"attack_start": SubResource("Animation_8vxtd"),
+"attack_stopped": SubResource("Animation_ch3ui")
+}
+
+[sub_resource type="Animation" id="Animation_h38hb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InventoryPanel:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ec01r"]
+resource_name = "close_inventory"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InventoryPanel:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(0, 437), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3n3ea"]
+resource_name = "open_inventory"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InventoryPanel:custom_minimum_size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 437)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0i4fk"]
+_data = {
+"RESET": SubResource("Animation_h38hb"),
+"close_inventory": SubResource("Animation_ec01r"),
+"open_inventory": SubResource("Animation_3n3ea")
+}
+
+[sub_resource type="Animation" id="Animation_newv4"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_ykiq7"]
+resource_name = "hide_diskette"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Diskette:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(602, 62), Vector2(658, 62)]
+}
+
+[sub_resource type="Animation" id="Animation_0bjfe"]
+resource_name = "show_diskette"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Diskette:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(658, 62), Vector2(602, 62)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_potbx"]
+_data = {
+"RESET": SubResource("Animation_newv4"),
+"hide_diskette": SubResource("Animation_ykiq7"),
+"show_diskette": SubResource("Animation_0bjfe")
+}
+
+[sub_resource type="Animation" id="Animation_0mvhh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MiningCoolDownProgressBar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-128, 63)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MiningCoolDownLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-143, 89)]
+}
+
+[sub_resource type="Animation" id="Animation_smgip"]
+resource_name = "cool_down_started"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MiningCoolDownProgressBar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(-128, 63), Vector2(6, 63)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MiningCoolDownLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(-143, 89), Vector2(0, 89)]
+}
+
+[sub_resource type="Animation" id="Animation_lqydt"]
+resource_name = "cool_down_stopped"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MiningCoolDownProgressBar:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(6, 63), Vector2(-128, 63)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MiningCoolDownLabel:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(-5, 5),
+"update": 0,
+"values": [Vector2(0, 89), Vector2(-143, 89)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g005v"]
+_data = {
+"RESET": SubResource("Animation_0mvhh"),
+"cool_down_started": SubResource("Animation_smgip"),
+"cool_down_stopped": SubResource("Animation_lqydt")
+}
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_w4ptl")
+
+[node name="Panel" type="Panel" parent="."]
+clip_contents = true
+offset_right = 640.0
+
+[node name="user_name" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_right = 101.0
+offset_bottom = 29.0
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 16
+text = "
+"
+
+[node name="hp" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 237.0
+offset_right = 329.0
+offset_bottom = 29.0
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 16
+text = "HP:
+"
+
+[node name="mp" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 237.0
+offset_top = 18.0
+offset_right = 329.0
+offset_bottom = 47.0
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 16
+text = "MP:
+"
+
+[node name="trilium_balance" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 18.0
+offset_right = 101.0
+offset_bottom = 44.0
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShowMenu" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 554.0
+offset_top = 4.0
+offset_right = 638.0
+offset_bottom = 40.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("2_85hnq")
+theme_override_styles/hover = ExtResource("3_x3r6t")
+theme_override_styles/pressed = ExtResource("4_5mjjx")
+theme_override_styles/focus = ExtResource("4_5mjjx")
+text = "Menu"
+
+[node name="TextureButton" type="TextureButton" parent="Panel"]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 4.0
+offset_right = 552.0
+offset_bottom = 38.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_tiwas")
+texture_pressed = ExtResource("4_tiwas")
+texture_hover = ExtResource("4_tiwas")
+stretch_mode = 0
+
+[node name="test" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 274.0
+offset_top = 2.0
+offset_right = 354.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="experience" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 394.0
+offset_top = 18.0
+offset_right = 514.0
+offset_bottom = 44.0
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="level" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 394.0
+offset_right = 514.0
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="DialogPanel" parent="." instance=ExtResource("5_u1hya")]
+z_index = 1
+
+[node name="TipPanel" type="Panel" parent="."]
+visible = false
+offset_left = 182.0
+offset_top = 364.0
+offset_right = 486.0
+offset_bottom = 416.0
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TipPanel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 4.0
+offset_right = 298.0
+offset_bottom = 48.0
+theme_override_font_sizes/normal_font_size = 28
+text = "Press \"E\" to interact"
+tab_size = 6
+
+[node name="InventoryPanel" type="Panel" parent="."]
+z_index = 1
+clip_contents = true
+offset_top = 43.0
+offset_right = 640.0
+offset_bottom = 43.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_5vphv")
+
+[node name="CloseButton" type="Button" parent="InventoryPanel"]
+layout_mode = 0
+offset_left = 584.0
+offset_top = 5.0
+offset_right = 614.0
+offset_bottom = 49.0
+scale = Vector2(1, 0.72)
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 20
+text = "X"
+
+[node name="tab_buttons" type="Control" parent="InventoryPanel"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = -27.0
+offset_top = 28.0
+offset_right = 53.0
+offset_bottom = 104.0
+
+[node name="AllBtn" type="Button" parent="InventoryPanel/tab_buttons"]
+layout_mode = 2
+anchor_left = 0.099
+anchor_right = 0.305
+anchor_bottom = 0.896
+offset_left = 102.08
+offset_top = 22.0
+offset_right = 130.6
+offset_bottom = -1.096
+mouse_default_cursor_shape = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 12
+icon = ExtResource("7_ndnk0")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="bg" type="Panel" parent="InventoryPanel/tab_buttons/AllBtn"]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y5mwo")
+
+[node name="ConsumablesBtn" type="Button" parent="InventoryPanel/tab_buttons"]
+layout_mode = 2
+anchor_left = 0.307
+anchor_top = 0.143
+anchor_right = 0.496
+anchor_bottom = 1.0
+offset_left = 148.0
+offset_top = 12.566
+offset_right = 177.88
+offset_bottom = -7.566
+mouse_default_cursor_shape = 2
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+icon = ExtResource("9_yqobi")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="bg" type="Panel" parent="InventoryPanel/tab_buttons/ConsumablesBtn"]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y5mwo")
+
+[node name="WeaponsBtn" type="Button" parent="InventoryPanel/tab_buttons"]
+layout_mode = 2
+anchor_left = 0.512
+anchor_top = 0.108
+anchor_right = 0.701
+anchor_bottom = 0.968
+offset_left = 200.0
+offset_top = 13.896
+offset_right = 229.88
+offset_bottom = -6.464
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 12
+icon = ExtResource("8_x5y1s")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="bg" type="Panel" parent="InventoryPanel/tab_buttons/WeaponsBtn"]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y5mwo")
+
+[node name="MiningEquBtn" type="Button" parent="InventoryPanel/tab_buttons"]
+layout_mode = 2
+anchor_left = 0.708
+anchor_top = 0.072
+anchor_right = 0.897
+anchor_bottom = 0.932
+offset_left = 252.0
+offset_top = 15.264
+offset_right = 281.88
+offset_bottom = -5.096
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 12
+icon = ExtResource("9_vdu2e")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="bg" type="Panel" parent="InventoryPanel/tab_buttons/MiningEquBtn"]
+visible = false
+show_behind_parent = true
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y5mwo")
+
+[node name="inventory_extras" type="Control" parent="InventoryPanel"]
+anchors_preset = 0
+offset_left = 1.0
+offset_top = 6.0
+offset_right = 41.0
+offset_bottom = 46.0
+mouse_filter = 2
+
+[node name="container_bg" type="Panel" parent="InventoryPanel/inventory_extras"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 92.0
+offset_right = 350.0
+offset_bottom = 258.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_33tgb")
+
+[node name="container_bg2" type="Panel" parent="InventoryPanel/inventory_extras"]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 130.0
+offset_right = 594.0
+offset_bottom = 332.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_33tgb")
+
+[node name="crafting_bg" type="Panel" parent="InventoryPanel/inventory_extras"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 266.0
+offset_right = 346.0
+offset_bottom = 386.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4dkm0")
+
+[node name="outputbg" type="Panel" parent="InventoryPanel/inventory_extras"]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 336.0
+offset_right = 622.0
+offset_bottom = 388.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vidwt")
+
+[node name="info" type="Label" parent="InventoryPanel/inventory_extras/outputbg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+
+[node name="crafting_bg2" type="Panel" parent="InventoryPanel/inventory_extras"]
+visible = false
+clip_children = 2
+z_index = 2
+clip_contents = true
+layout_mode = 0
+offset_left = 224.0
+offset_top = 2.0
+offset_right = 616.0
+offset_bottom = 258.0
+mouse_filter = 2
+mouse_default_cursor_shape = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4dkm0")
+
+[node name="info" type="RichTextLabel" parent="InventoryPanel/inventory_extras/crafting_bg2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = -2.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 14
+text = "								Crafting Equipments
+		2 Iron Ores = Iron Nugget
+		2 Copper Ore = Copper Nugget
+		2 Golden Ore = Golden Nugget
+		2 Silver Ore = Silver Nugget
+		3 Iron Nugget = Iron Ingot
+		3 Copper Nugget = Copper Ingot
+		3 Golden Nugget = Golden Ingot
+		3 Silver Nugget = Silver Ingot
+								Weapons
+		3 Copper Ingot + 1 Leather = Abundant Dagger
+		3 Silver Ingot + 2 Leather = Common Dagger
+		3 Iron Ingot + 2 Leather = Rare Dagger
+		3 Gold Ingot + 2 Leather = Epic Dagger
+		4 Copper Ingot + 2 Leather = Abundant Sword
+		4 Silver Ingot + 3 Leather = Common Sword
+		4 Iron Ingot + 3 Leather = Rare Sword
+		4 Gold Ingot + 3 Leather = Epic Sword
+								Mining Equipments
+		2 Copper Ingot + 2 Leather = Abundant Shovel
+		2 Silver Ingot + 2 Leather = Common Shovel
+		2 Iron Ingot + 2 Leather = Rare Shovel
+		2 Gold Ingot + 2 Leather = Epic Shovel
+								Armors
+		2 Copper Ingot + 3 Cloth = Abundant Armor
+		2 Silver Ingot + 3 Cloth = Common Armor
+		2 Iron Ingot + 3 Cloth = Rare Armor
+		2 Gold Ingot + 3 Cloth = Epic Armor
+								Helmets
+		2 Copper Ingot + 2 Cloth = Abundant Helmet
+		2 Silver Ingot + 2 Cloth = Common Helmet
+		2 Iron Ingot + 2 Cloth = Rare Helmet
+		2 Gold Ingot + 2 Cloth = Epic Helmet"
+scroll_following = true
+tab_size = 6
+
+[node name="inventorybottom_bg" type="Panel" parent="InventoryPanel/inventory_extras"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 188.0
+offset_right = 306.0
+offset_bottom = 216.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8win3")
+
+[node name="inventorybottom_bg2" type="Panel" parent="InventoryPanel/inventory_extras"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 366.0
+offset_top = 260.0
+offset_right = 554.0
+offset_bottom = 288.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8win3")
+
+[node name="header_bg" type="Panel" parent="InventoryPanel/inventory_extras"]
+show_behind_parent = true
+layout_mode = 0
+offset_left = 32.0
+offset_top = -2.0
+offset_right = 572.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7kwqj")
+
+[node name="header" type="Label" parent="InventoryPanel/inventory_extras/header_bg"]
+layout_mode = 0
+offset_left = 207.0
+offset_top = -2.0
+offset_right = 366.0
+offset_bottom = 40.0
+size_flags_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 28
+text = "INVENTORY"
+
+[node name="itemCount" type="Label" parent="InventoryPanel/inventory_extras"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 0
+offset_left = 54.0
+offset_top = 228.0
+offset_right = 79.0
+offset_bottom = 259.0
+size_flags_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="spaceHeader" type="Label" parent="InventoryPanel/inventory_extras"]
+visible = false
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 0
+offset_left = 90.0
+offset_top = 226.0
+offset_right = 140.0
+offset_bottom = 260.0
+size_flags_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "/ 20"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="player_img_hold" type="Sprite2D" parent="InventoryPanel/inventory_extras"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(498, 226)
+scale = Vector2(2, 2)
+texture = ExtResource("6_rq0ec")
+
+[node name="AllTabHeader" type="Label" parent="InventoryPanel/inventory_extras"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 276.0
+offset_top = 228.0
+offset_right = 308.0
+offset_bottom = 262.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.952941, 0.952941, 0.952941, 0.211765)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "All"
+
+[node name="EquippedHeader" type="Label" parent="InventoryPanel/inventory_extras"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 456.0
+offset_top = 298.0
+offset_right = 548.0
+offset_bottom = 332.0
+grow_horizontal = 0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.952941, 0.952941, 0.952941, 0.211765)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Equipped"
+
+[node name="MiningTabHeader" type="Label" parent="InventoryPanel/inventory_extras"]
+visible = false
+layout_mode = 0
+offset_left = 166.0
+offset_top = 228.0
+offset_right = 344.0
+offset_bottom = 262.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.952941, 0.952941, 0.952941, 0.211765)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Mining Equipment"
+
+[node name="WeaponTabHeader" type="Label" parent="InventoryPanel/inventory_extras"]
+visible = false
+layout_mode = 1
+offset_left = 251.0
+offset_top = 228.0
+offset_right = 341.0
+offset_bottom = 262.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.952941, 0.952941, 0.952941, 0.211765)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Weapons"
+
+[node name="ConsumeTabHeader" type="Label" parent="InventoryPanel/inventory_extras"]
+visible = false
+layout_mode = 0
+offset_left = 210.0
+offset_top = 228.0
+offset_right = 342.0
+offset_bottom = 262.0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.952941, 0.952941, 0.952941, 0.211765)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Consumables"
+
+[node name="CraftingTabHeader" type="Label" parent="InventoryPanel/inventory_extras"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 138.0
+offset_top = 222.0
+offset_right = 216.0
+offset_bottom = 256.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 0.858824)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Crafting"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Craft" type="Button" parent="InventoryPanel/inventory_extras"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = 358.0
+offset_right = 340.0
+offset_bottom = 382.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_i4nqx")
+theme_override_styles/hover = ExtResource("3_x3r6t")
+theme_override_styles/pressed = ExtResource("4_5mjjx")
+theme_override_styles/focus = SubResource("StyleBoxFlat_kj4oh")
+text = "Craft"
+
+[node name="HelpCrafting" type="Button" parent="InventoryPanel/inventory_extras"]
+visible = false
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 0
+offset_left = 322.0
+offset_top = 274.0
+offset_right = 346.0
+offset_bottom = 298.0
+mouse_default_cursor_shape = 2
+theme = ExtResource("7_g2bcv")
+theme_override_styles/normal = ExtResource("2_85hnq")
+theme_override_styles/hover = ExtResource("3_x3r6t")
+theme_override_styles/pressed = ExtResource("4_5mjjx")
+toggle_mode = true
+icon = ExtResource("13_n34n0")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="ItemsScrollContainer" type="ScrollContainer" parent="InventoryPanel"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 118.0
+offset_right = 350.0
+offset_bottom = 236.0
+follow_focus = true
+horizontal_scroll_mode = 3
+
+[node name="ItemsContainer" type="GridContainer" parent="InventoryPanel/ItemsScrollContainer"]
+clip_contents = true
+layout_direction = 2
+layout_mode = 2
+mouse_filter = 0
+columns = 10
+
+[node name="WeaponsScrollContainer" type="ScrollContainer" parent="InventoryPanel"]
+visible = false
+layout_mode = 0
+offset_left = 50.0
+offset_top = 118.0
+offset_right = 350.0
+offset_bottom = 236.0
+follow_focus = true
+horizontal_scroll_mode = 3
+
+[node name="WeaponsContainer" type="GridContainer" parent="InventoryPanel/WeaponsScrollContainer"]
+layout_mode = 2
+columns = 10
+
+[node name="ConsumablesScrollContainer" type="ScrollContainer" parent="InventoryPanel"]
+visible = false
+layout_mode = 0
+offset_left = 50.0
+offset_top = 118.0
+offset_right = 350.0
+offset_bottom = 236.0
+follow_focus = true
+horizontal_scroll_mode = 3
+
+[node name="Consumables" type="GridContainer" parent="InventoryPanel/ConsumablesScrollContainer"]
+layout_direction = 2
+layout_mode = 2
+mouse_filter = 0
+columns = 10
+
+[node name="MiningScrollContainer" type="ScrollContainer" parent="InventoryPanel"]
+visible = false
+layout_mode = 0
+offset_left = 50.0
+offset_top = 118.0
+offset_right = 350.0
+offset_bottom = 236.0
+follow_focus = true
+horizontal_scroll_mode = 3
+
+[node name="MiningEquipment" type="GridContainer" parent="InventoryPanel/MiningScrollContainer"]
+layout_direction = 2
+layout_mode = 2
+mouse_filter = 0
+columns = 10
+
+[node name="EquippedContainer" type="GridContainer" parent="InventoryPanel" groups=["equipmentcontainer"]]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 193.0
+offset_right = 596.0
+offset_bottom = 301.0
+mouse_filter = 2
+
+[node name="helmet_slot" parent="InventoryPanel/EquippedContainer" instance=ExtResource("7_2jdf5")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="weapon_slot" parent="InventoryPanel/EquippedContainer" instance=ExtResource("7_2jdf5")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="EquippedContainerLeft" type="GridContainer" parent="InventoryPanel" groups=["equipmentcontainer"]]
+layout_mode = 0
+offset_left = 439.0
+offset_top = 193.0
+offset_right = 491.0
+offset_bottom = 301.0
+mouse_filter = 2
+
+[node name="armor_slot" parent="InventoryPanel/EquippedContainerLeft" instance=ExtResource("7_2jdf5")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="mining_equ_slot" parent="InventoryPanel/EquippedContainerLeft" instance=ExtResource("7_2jdf5")]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="CraftingScrollContainer" type="ScrollContainer" parent="InventoryPanel"]
+layout_mode = 2
+offset_left = 62.0
+offset_top = 308.0
+offset_right = 318.0
+offset_bottom = 362.0
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="CraftingContainer" type="GridContainer" parent="InventoryPanel/CraftingScrollContainer"]
+layout_mode = 2
+mouse_filter = 0
+columns = 8
+
+[node name="Panel2" type="Panel" parent="."]
+unique_name_in_owner = true
+clip_contents = true
+offset_top = 354.0
+offset_bottom = 480.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tvv01")
+
+[node name="planet" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 31.0
+theme_override_font_sizes/font_size = 20
+text = "Planet"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="land" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_top = 29.0
+offset_right = 160.0
+offset_bottom = 55.0
+theme_override_font_sizes/font_size = 16
+text = "Land"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="localarea" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_top = 53.0
+offset_right = 160.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 16
+text = "Local Area"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="fps" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_top = 74.0
+offset_right = 160.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 18
+text = "FPS:"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="coord" type="Label" parent="Panel2"]
+layout_mode = 0
+offset_top = 97.0
+offset_right = 160.0
+offset_bottom = 126.0
+theme_override_font_sizes/font_size = 18
+text = "(x,y)"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="BattleChargeUpProgressBar" type="ProgressBar" parent="."]
+top_level = true
+offset_left = -128.0
+offset_top = 114.0
+offset_right = -2.00009
+offset_bottom = 141.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_w43pv")
+
+[node name="BattleChargeUpLabel" type="Label" parent="."]
+top_level = true
+offset_left = -128.0
+offset_top = 140.0
+offset_right = -2.00006
+offset_bottom = 166.0
+theme_override_font_sizes/font_size = 16
+text = "Fight"
+horizontal_alignment = 1
+text_overrun_behavior = 1
+
+[node name="MiningCoolDownProgressBar" type="ProgressBar" parent="."]
+top_level = true
+offset_left = -128.0
+offset_top = 63.0
+offset_right = -1.99995
+offset_bottom = 90.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_w43pv")
+
+[node name="MiningCoolDownLabel" type="Label" parent="."]
+top_level = true
+offset_left = -143.0
+offset_top = 89.0
+offset_right = -2.0
+offset_bottom = 115.0
+theme_override_font_sizes/font_size = 16
+text = "Mining Cool Down"
+
+[node name="AttackButton" type="Button" parent="."]
+offset_left = 512.0
+offset_top = 406.0
+offset_right = 512.0
+offset_bottom = 468.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = ExtResource("2_85hnq")
+theme_override_styles/hover = ExtResource("3_x3r6t")
+theme_override_styles/disabled = ExtResource("5_a6g6v")
+theme_override_styles/focus = ExtResource("2_85hnq")
+disabled = true
+keep_pressed_outside = true
+text = "Attack"
+clip_text = true
+
+[node name="Diskette" type="Sprite2D" parent="."]
+top_level = true
+position = Vector2(658, 62)
+scale = Vector2(2, 2)
+texture = ExtResource("8_5xoe5")
+
+[node name="magichealthprompt" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.654902)
+clip_contents = true
+offset_left = 10.0
+offset_top = 304.0
+offset_right = 10.0
+offset_bottom = 322.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="magichealthprompt"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.129
+anchor_right = 0.849
+anchor_bottom = 1.056
+offset_left = 1.069
+offset_top = -1.0
+offset_right = 0.988998
+offset_bottom = -0.00799942
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Press V for magic"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="healthprompt" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.654902)
+clip_contents = true
+offset_left = 10.0
+offset_top = 325.0
+offset_right = 10.0
+offset_bottom = 343.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="healthprompt"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.137
+anchor_right = 0.878
+anchor_bottom = 1.056
+offset_left = -0.0430012
+offset_top = -1.0
+offset_right = -0.0419998
+offset_bottom = -0.00799942
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Press X for health"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="attackprompt" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.654902)
+clip_contents = true
+offset_left = 498.0
+offset_top = 378.0
+offset_right = 498.0
+offset_bottom = 396.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="attackprompt"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = -1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Press Z to attack"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="magicprompt" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.654902)
+clip_contents = true
+offset_left = 498.0
+offset_top = 357.0
+offset_right = 498.0
+offset_bottom = 375.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="magicprompt"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Press C to attract"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HudAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_sjd16")
+}
+
+[node name="AttackAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8dbvi")
+}
+
+[node name="InventoryAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_0i4fk")
+}
+
+[node name="SaveAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_potbx")
+}
+
+[node name="MiningCoolDownAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_g005v")
+}
+
+[node name="CurrQuest" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[connection signal="pressed" from="Panel/ShowMenu" to="." method="_on_show_menu_pressed"]
+[connection signal="pressed" from="Panel/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="InventoryPanel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="InventoryPanel/tab_buttons/AllBtn" to="." method="_on_all_btn_pressed"]
+[connection signal="pressed" from="InventoryPanel/tab_buttons/ConsumablesBtn" to="." method="_on_consumables_btn_pressed"]
+[connection signal="pressed" from="InventoryPanel/tab_buttons/WeaponsBtn" to="." method="_on_weapons_btn_pressed"]
+[connection signal="pressed" from="InventoryPanel/tab_buttons/MiningEquBtn" to="." method="_on_mining_equ_btn_pressed"]
+[connection signal="pressed" from="InventoryPanel/inventory_extras/Craft" to="." method="_on_craft_pressed"]
+[connection signal="pressed" from="InventoryPanel/inventory_extras/HelpCrafting" to="." method="_on_help_crafting_pressed"]
+[connection signal="pressed" from="AttackButton" to="." method="_on_attack_button_pressed"]

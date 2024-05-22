@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=3 uid="uid://cb0vbyb6fcimp"]
+
+[ext_resource type="Script" path="res://Scripts/Characters/glenn_sundout.gd" id="1_okykr"]
+[ext_resource type="Texture2D" uid="uid://cu31n7771w4ig" path="res://Images/hud/info.png" id="2_4bj5b"]
+[ext_resource type="Texture2D" uid="uid://baprhlej724ej" path="res://Images/Glenn/Glenn.png" id="3_a5y8r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_57fq0"]
+size = Vector2(16, 10)
+
+[sub_resource type="Animation" id="Animation_dmmtj"]
+resource_name = "walk_down"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [131, 132, 133, 134, 135, 136, 137, 138]
+}
+
+[sub_resource type="Animation" id="Animation_l48vp"]
+resource_name = "walk_left"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [118, 119, 120, 121, 122, 123, 124, 125]
+}
+
+[sub_resource type="Animation" id="Animation_k1uo7"]
+resource_name = "walk_up"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [105, 106, 107, 108, 109, 110, 111, 112]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gtx70"]
+_data = {
+"walk_down": SubResource("Animation_dmmtj"),
+"walk_left": SubResource("Animation_l48vp"),
+"walk_up": SubResource("Animation_k1uo7")
+}
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_7okel"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="GlennSundout" type="CharacterBody2D"]
+script = ExtResource("1_okykr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 14)
+shape = SubResource("RectangleShape2D_57fq0")
+
+[node name="Info" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -22)
+texture = ExtResource("2_4bj5b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_a5y8r")
+hframes = 13
+vframes = 21
+frame = 134
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gtx70")
+}
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_7okel")

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://irmsx63fnmws"]
+
+[ext_resource type="Texture2D" uid="uid://cu31n7771w4ig" path="res://Images/hud/info.png" id="1_7mpap"]
+[ext_resource type="Texture2D" uid="uid://ducwtqr8gbeg8" path="res://Images/equipments_and_items/legendary_sword.png" id="1_cphby"]
+[ext_resource type="Script" path="res://Scripts/Items/InventoryBody/legendary_sword.gd" id="1_jcqke"]
+[ext_resource type="AudioStream" uid="uid://bknvqdmtf8r5m" path="res://SoundFX/magical_2.ogg" id="3_3nn78"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_opqqq"]
+size = Vector2(18, 18)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_y26rk"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="LegendarySword" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_jcqke")
+
+[node name="LegendarySword" type="Sprite2D" parent="."]
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("1_cphby")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_opqqq")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_y26rk")
+
+[node name="Info" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, -16)
+texture = ExtResource("1_7mpap")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3nn78")

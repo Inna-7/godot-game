@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://8fsao4ynhwn7"]
+
+[ext_resource type="Script" path="res://Scripts/Levels/level.gd" id="1_3unks"]
+
+[node name="Level" type="TileMap"]
+format = 2
+script = ExtResource("1_3unks")

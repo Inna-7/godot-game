@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtxb88l722u8m"]
+
+[ext_resource type="Script" path="res://Scripts/Items/InventoryBody/rare_dagger.gd" id="1_vfaac"]
+[ext_resource type="Texture2D" uid="uid://cahxy1yd7niwd" path="res://Images/equipments_and_items/rare_dagger.png" id="2_4i6vo"]
+[ext_resource type="Texture2D" uid="uid://cu31n7771w4ig" path="res://Images/hud/info.png" id="2_44lrg"]
+[ext_resource type="AudioStream" uid="uid://bknvqdmtf8r5m" path="res://SoundFX/magical_2.ogg" id="2_aqsbo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dx1yk"]
+size = Vector2(14, 14)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_mgg62"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="RareDagger" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_vfaac")
+
+[node name="RareDagger" type="Sprite2D" parent="."]
+position = Vector2(0.5, -0.499999)
+scale = Vector2(0.26, 0.26)
+texture = ExtResource("2_4i6vo")
+flip_h = true
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_dx1yk")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_mgg62")
+
+[node name="Info" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, -17)
+texture = ExtResource("2_44lrg")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_aqsbo")

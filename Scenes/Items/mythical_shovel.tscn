@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://b4egg4e3iedli"]
+
+[ext_resource type="Script" path="res://Scripts/Items/InventoryBody/mythical_shovel.gd" id="1_sap2g"]
+[ext_resource type="Texture2D" uid="uid://d4hdsn3ljwt7u" path="res://Images/equipments_and_items/mythical_shovel.png" id="2_j2pvv"]
+[ext_resource type="Texture2D" uid="uid://cu31n7771w4ig" path="res://Images/hud/info.png" id="3_qehnd"]
+[ext_resource type="AudioStream" uid="uid://bknvqdmtf8r5m" path="res://SoundFX/magical_2.ogg" id="4_lii0s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02pp8"]
+size = Vector2(20, 22)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_0yaat"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="MythicalShovel" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_sap2g")
+
+[node name="MythicalShovel" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.22)
+texture = ExtResource("2_j2pvv")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_02pp8")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_0yaat")
+
+[node name="Info" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, -16)
+texture = ExtResource("3_qehnd")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_lii0s")

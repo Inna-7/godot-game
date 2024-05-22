@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ysi2j615xpyw"]
+
+[ext_resource type="Texture2D" uid="uid://b6qw3dvvj2iqj" path="res://Images/hud/armor.png" id="1_opgo8"]
+
+[node name="Armor" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_opgo8")

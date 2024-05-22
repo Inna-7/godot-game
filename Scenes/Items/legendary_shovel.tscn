@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1ojhfrp4adqo"]
+
+[ext_resource type="Texture2D" uid="uid://cu31n7771w4ig" path="res://Images/hud/info.png" id="1_avwpb"]
+[ext_resource type="Script" path="res://Scripts/Items/InventoryBody/legendary_shovel.gd" id="1_b1avv"]
+[ext_resource type="AudioStream" uid="uid://bknvqdmtf8r5m" path="res://SoundFX/magical_2.ogg" id="2_u7iiv"]
+[ext_resource type="Texture2D" uid="uid://bntncehurr3iq" path="res://Images/equipments_and_items/legendary_shovel.png" id="2_v3f3j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1kuuj"]
+size = Vector2(20, 22)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_k5f16"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="LegendaryShovel" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_b1avv")
+
+[node name="LegendaryShovel" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.22)
+texture = ExtResource("2_v3f3j")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1kuuj")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_k5f16")
+
+[node name="Info" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, -16)
+texture = ExtResource("1_avwpb")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_u7iiv")

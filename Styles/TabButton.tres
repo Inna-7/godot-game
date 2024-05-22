@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://b7l752ryympuk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nkhlx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qe0pn"]
+
+[resource]
+Button/styles/focus = null
+Button/styles/hover = null
+Button/styles/normal = SubResource("StyleBoxFlat_nkhlx")
+Button/styles/pressed = SubResource("StyleBoxEmpty_qe0pn")

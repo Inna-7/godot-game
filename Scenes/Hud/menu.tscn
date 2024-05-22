@@ -1,0 +1,398 @@
+[gd_scene load_steps=6 format=3 uid="uid://b04hfhdnkeu5g"]
+
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_6sc1m"]
+[ext_resource type="StyleBox" uid="uid://bq2c63fexm4mw" path="res://Styles/WAXButton.tres" id="2_27q76"]
+[ext_resource type="StyleBox" uid="uid://cpwuxfiiuaa2l" path="res://Styles/WAXButtonHover.tres" id="3_jy7n5"]
+[ext_resource type="Script" path="res://Scripts/SettingsPnl.gd" id="4_6rdug"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dce63"]
+bg_color = Color(0.188235, 0.505882, 0.580392, 1)
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_6sc1m")
+
+[node name="Wrapper" type="Panel" parent="."]
+clip_children = 2
+z_index = 1
+offset_right = 640.0
+offset_bottom = 480.0
+
+[node name="Panel" type="Panel" parent="Wrapper"]
+z_index = 2
+layout_mode = 0
+offset_left = 90.0
+offset_top = 92.0
+offset_right = 546.0
+offset_bottom = 370.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dce63")
+
+[node name="Close" type="Button" parent="Wrapper/Panel"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 6.0
+offset_right = 456.0
+offset_bottom = 68.0
+scale = Vector2(0.840002, 0.52)
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 20
+text = "X"
+
+[node name="Settings" type="Button" parent="Wrapper/Panel"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 66.0
+offset_right = 302.0
+offset_bottom = 120.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = ExtResource("2_27q76")
+theme_override_styles/hover = ExtResource("3_jy7n5")
+text = "Settings"
+
+[node name="CreditsBtn" type="Button" parent="Wrapper/Panel"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 124.0
+offset_right = 302.0
+offset_bottom = 178.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = ExtResource("2_27q76")
+theme_override_styles/hover = ExtResource("3_jy7n5")
+text = "Credits"
+
+[node name="PlayerStats2" type="Button" parent="Wrapper/Panel"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 224.0
+offset_right = 94.0
+offset_bottom = 270.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = ExtResource("2_27q76")
+theme_override_styles/hover = ExtResource("3_jy7n5")
+text = "Statistics"
+
+[node name="Exit" type="Button" parent="Wrapper/Panel"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 182.0
+offset_right = 302.0
+offset_bottom = 236.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = ExtResource("2_27q76")
+theme_override_styles/hover = ExtResource("3_jy7n5")
+text = "Exit"
+
+[node name="header" type="Label" parent="Wrapper/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.507
+anchor_right = 0.507
+offset_left = -22.596
+offset_right = 22.404
+offset_bottom = 26.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Menu"
+
+[node name="Credits" type="Panel" parent="Wrapper/Panel"]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.0
+offset_top = -139.0
+offset_right = 228.0
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dce63")
+
+[node name="CloseCredits" type="Button" parent="Wrapper/Panel/Credits"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 6.0
+offset_right = 456.0
+offset_bottom = 68.0
+scale = Vector2(0.84, 0.52)
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 20
+text = "X"
+
+[node name="Content" type="RichTextLabel" parent="Wrapper/Panel/Credits"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -92.0
+offset_right = 194.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "Game Director
+Ami Spero
+
+Writer
+Robert Walcott
+
+2D Art and Animation
+Ashlee LaVine
+
+Programmers
+Ami Spero
+Inna Ayvazyan
+Kamve Gwijana
+Matthew Grigajtis
+Satyam Khadka
+
+Music
+The Battle of Atheria
+By HitCtrl released under the CC-BY 3.0 license
+
+Bean Counter
+Aleks Bologna"
+
+[node name="SettingsPnl" type="Panel" parent="Wrapper/Panel"]
+visible = false
+z_index = 3
+layout_mode = 0
+offset_right = 456.0
+offset_bottom = 278.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_dce63")
+script = ExtResource("4_6rdug")
+
+[node name="header" type="Label" parent="Wrapper/Panel/SettingsPnl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.507
+anchor_right = 0.507
+offset_left = -39.192
+offset_right = 38.808
+offset_bottom = 31.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+
+[node name="AudioBtn" type="Button" parent="Wrapper/Panel/SettingsPnl"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 142.0
+offset_right = 297.0
+offset_bottom = 196.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 28
+theme_override_styles/normal = ExtResource("2_27q76")
+theme_override_styles/hover = ExtResource("3_jy7n5")
+text = "Audio"
+
+[node name="CloseSettings" type="Button" parent="Wrapper/Panel/SettingsPnl"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 6.0
+offset_right = 456.0
+offset_bottom = 68.0
+scale = Vector2(0.84, 0.52)
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 20
+text = "X"
+
+[node name="Audio" type="Panel" parent="Wrapper/Panel/SettingsPnl"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.0
+offset_top = -139.0
+offset_right = 228.0
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dce63")
+
+[node name="CloseAudio" type="Button" parent="Wrapper/Panel/SettingsPnl/Audio"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 6.0
+offset_right = 456.0
+offset_bottom = 68.0
+scale = Vector2(0.84, 0.52)
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 20
+text = "X"
+
+[node name="mainVol" type="HScrollBar" parent="Wrapper/Panel/SettingsPnl/Audio"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.491
+anchor_top = 0.446
+anchor_right = 0.491
+anchor_bottom = 0.446
+offset_left = -58.878
+offset_top = 0.012001
+offset_right = 59.122
+offset_bottom = 16.012
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 6
+min_value = -100.0
+max_value = 0.0
+step = 1.0
+
+[node name="Label" type="Label" parent="Wrapper/Panel/SettingsPnl/Audio/mainVol"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.517
+anchor_top = -2.0
+anchor_right = 0.517
+anchor_bottom = -2.0
+offset_left = -109.006
+offset_top = -26.0
+offset_right = 108.994
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 28
+text = "Game Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="effectsVol" type="HScrollBar" parent="Wrapper/Panel/SettingsPnl/Audio"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.493
+anchor_top = 0.691
+anchor_right = 0.493
+anchor_bottom = 0.691
+offset_left = -58.836
+offset_top = -0.0430145
+offset_right = 59.164
+offset_bottom = 15.957
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 6
+min_value = -100.0
+max_value = 0.0
+step = 1.0
+
+[node name="Label" type="Label" parent="Wrapper/Panel/SettingsPnl/Audio/effectsVol"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -2.0
+anchor_right = 0.5
+anchor_bottom = -2.0
+offset_left = -107.997
+offset_top = -26.0
+offset_right = 110.003
+offset_bottom = 26.0
+theme_override_font_sizes/font_size = 28
+text = "Effects Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="header" type="Label" parent="Wrapper/Panel/SettingsPnl/Audio"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.502
+anchor_top = 0.047
+anchor_right = 0.502
+anchor_bottom = 0.047
+offset_left = -55.916
+offset_top = -13.066
+offset_right = 56.084
+offset_bottom = 12.934
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Audio Settings"
+
+[node name="CheckButton" type="CheckButton" parent="Wrapper/Panel/SettingsPnl"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 82.0
+offset_right = 295.0
+offset_bottom = 113.0
+text = "Full Screen
+"
+
+[node name="PlayerStats" type="Panel" parent="Wrapper/Panel"]
+visible = false
+z_index = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -228.0
+offset_top = -139.0
+offset_right = 228.0
+offset_bottom = 139.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dce63")
+
+[node name="CloseStats" type="Button" parent="Wrapper/Panel/PlayerStats"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 6.0
+offset_right = 456.0
+offset_bottom = 68.0
+scale = Vector2(0.84, 0.52)
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 20
+text = "X"
+
+[node name="Header" type="Label" parent="Wrapper/Panel/PlayerStats"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.505
+anchor_right = 0.505
+offset_left = -43.28
+offset_right = 43.72
+offset_bottom = 31.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Statistics"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Content" type="RichTextLabel" parent="Wrapper/Panel/PlayerStats"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.0
+offset_top = -88.0
+offset_right = 191.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 20
+text = "
+"
+
+[connection signal="pressed" from="Wrapper/Panel/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Wrapper/Panel/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Wrapper/Panel/CreditsBtn" to="." method="_on_credits_btn_pressed"]
+[connection signal="pressed" from="Wrapper/Panel/PlayerStats2" to="." method="_on_player_stats_pressed"]
+[connection signal="pressed" from="Wrapper/Panel/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Wrapper/Panel/Credits/CloseCredits" to="." method="_on_close_credits_pressed"]
+[connection signal="pressed" from="Wrapper/Panel/SettingsPnl/AudioBtn" to="." method="_on_audio_btn_pressed"]
+[connection signal="pressed" from="Wrapper/Panel/SettingsPnl/CloseSettings" to="." method="_on_close_settings_pressed"]
+[connection signal="pressed" from="Wrapper/Panel/SettingsPnl/Audio/CloseAudio" to="." method="_on_close_audio_pressed"]
+[connection signal="toggled" from="Wrapper/Panel/SettingsPnl/CheckButton" to="Wrapper/Panel/SettingsPnl" method="_on_check_button_toggled"]
+[connection signal="pressed" from="Wrapper/Panel/PlayerStats/CloseStats" to="." method="_on_close_stats_pressed"]

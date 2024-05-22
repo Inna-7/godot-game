@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbvy82hxbn58p"]
+
+[ext_resource type="Texture2D" uid="uid://cq0wssgaif2qg" path="res://Images/hud/helmet.png" id="1_4m4l2"]
+
+[node name="Helmet" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_4m4l2")

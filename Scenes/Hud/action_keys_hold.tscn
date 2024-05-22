@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdxxygcgvxx52"]
+
+[ext_resource type="Script" path="res://Scripts/action_keys_hold.gd" id="1_8cqyg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j361l"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yob03"]
+bg_color = Color(0, 0, 0, 1)
+border_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0.184314, 0.6)
+shadow_size = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4sok"]
+bg_color = Color(0.0196078, 0.105882, 0.105882, 1)
+border_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0.141176, 0.6)
+shadow_size = 1
+
+[node name="action_keys_hold" type="Panel"]
+top_level = true
+z_index = 5
+custom_minimum_size = Vector2(98, 54)
+layout_direction = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -222.0
+offset_bottom = -186.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.002, 1.00508)
+mouse_force_pass_scroll_events = false
+theme_override_styles/panel = SubResource("StyleBoxFlat_j361l")
+script = ExtResource("1_8cqyg")
+
+[node name="topbackground" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 15.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yob03")
+
+[node name="bodybackground" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_t4sok")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://cp8oxf0nat4kp"]
+
+[ext_resource type="Script" path="res://Scripts/Items/InventoryBody/abundant_shovel.gd" id="1_26yju"]
+[ext_resource type="Texture2D" uid="uid://btuq07q7qlqeq" path="res://Images/equipments_and_items/abundant_shovel.png" id="2_wiu7a"]
+[ext_resource type="Texture2D" uid="uid://cu31n7771w4ig" path="res://Images/hud/info.png" id="3_qefbp"]
+[ext_resource type="AudioStream" uid="uid://bknvqdmtf8r5m" path="res://SoundFX/magical_2.ogg" id="4_2iexh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_js0vl"]
+size = Vector2(20, 22)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_vufbh"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="AbundantShovel" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_26yju")
+
+[node name="AbundantShovel" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, 9.53674e-07)
+scale = Vector2(0.625, 0.6875)
+texture = ExtResource("2_wiu7a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_js0vl")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_vufbh")
+
+[node name="Info" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, -20)
+texture = ExtResource("3_qefbp")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2iexh")

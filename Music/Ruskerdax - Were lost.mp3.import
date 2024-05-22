@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bvnsyw7dfaugp"
+path="res://.godot/imported/Ruskerdax - Were lost.mp3-ca3575d73586a23acdece02e2224c5d8.mp3str"
+
+[deps]
+
+source_file="res://Music/Ruskerdax - Were lost.mp3"
+dest_files=["res://.godot/imported/Ruskerdax - Were lost.mp3-ca3575d73586a23acdece02e2224c5d8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

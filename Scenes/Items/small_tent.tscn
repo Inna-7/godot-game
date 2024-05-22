@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbw5e7x1v6lg6"]
+
+[ext_resource type="Texture2D" uid="uid://0xi3ayjimut7" path="res://Images/assets_and_levels/Tent1.png" id="1_lgk4d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_50q6h"]
+size = Vector2(66, 35)
+
+[node name="SmallTent" type="Node2D"]
+
+[node name="Tent1" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_lgk4d")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_50q6h")

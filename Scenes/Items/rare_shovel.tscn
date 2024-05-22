@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://cr4dl28t4ley8"]
+
+[ext_resource type="Script" path="res://Scripts/Items/InventoryBody/rare_shovel.gd" id="1_kyh8f"]
+[ext_resource type="Texture2D" uid="uid://cu31n7771w4ig" path="res://Images/hud/info.png" id="1_ynkio"]
+[ext_resource type="Texture2D" uid="uid://ky8k8qkx6m50" path="res://Images/equipments_and_items/rare_shovel.png" id="2_tf6d3"]
+[ext_resource type="AudioStream" uid="uid://bknvqdmtf8r5m" path="res://SoundFX/magical_2.ogg" id="3_0wkvy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nxpen"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_7warv"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="RareShovel" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_kyh8f")
+
+[node name="RareShovel" type="Sprite2D" parent="."]
+position = Vector2(1.19209e-07, -1.19209e-07)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_tf6d3")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nxpen")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_7warv")
+
+[node name="Info" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, -20)
+texture = ExtResource("1_ynkio")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_0wkvy")

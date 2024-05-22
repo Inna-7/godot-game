@@ -1,0 +1,126 @@
+[gd_scene load_steps=7 format=3 uid="uid://dqvkvjrh3yj1i"]
+
+[ext_resource type="Script" path="res://Scripts/inventory_equipped_helmet.gd" id="1_lpa4j"]
+[ext_resource type="PackedScene" uid="uid://bdxxygcgvxx52" path="res://Scenes/Hud/action_keys_hold.tscn" id="2_o1l4l"]
+[ext_resource type="StyleBox" uid="uid://bq2c63fexm4mw" path="res://Styles/WAXButton.tres" id="3_wsowe"]
+[ext_resource type="StyleBox" uid="uid://cpwuxfiiuaa2l" path="res://Styles/WAXButtonHover.tres" id="4_sihu0"]
+[ext_resource type="StyleBox" uid="uid://ckveitsasybmy" path="res://Styles/WAXButtonPressed.tres" id="5_sn773"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_edttc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="InventoryEquippedHelmet" type="Node2D"]
+script = ExtResource("1_lpa4j")
+
+[node name="action_keys_hold" parent="." instance=ExtResource("2_o1l4l")]
+visible = false
+anchors_preset = -1
+anchor_left = 0.341
+anchor_top = 0.367
+anchor_right = 0.647
+anchor_bottom = 0.593
+offset_left = -0.12001
+offset_top = -0.0800018
+offset_right = -0.0400085
+offset_bottom = -0.320007
+
+[node name="ItemName" type="Label" parent="action_keys_hold"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.244
+anchor_top = 0.295
+anchor_right = 0.919
+anchor_bottom = 0.621
+offset_left = 0.0400925
+offset_top = -0.0108728
+offset_right = 35.8901
+offset_bottom = 5.38512
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.64779, 0.765645)
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HelmetLabel" type="Label" parent="action_keys_hold"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0479
+offset_top = 10.808
+offset_right = 52.9521
+offset_bottom = 27.808
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.64779, 0.765645)
+theme_override_font_sizes/font_size = 10
+text = "Helmet"
+horizontal_alignment = 1
+
+[node name="ButtonUnequip" type="Button" parent="action_keys_hold"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.489
+anchor_bottom = 0.277
+offset_right = 15.078
+offset_bottom = 6.042
+scale = Vector2(0.725946, 0.651115)
+mouse_default_cursor_shape = 2
+theme_override_styles/normal = ExtResource("3_wsowe")
+theme_override_styles/hover = ExtResource("4_sihu0")
+theme_override_styles/pressed = ExtResource("5_sn773")
+disabled = true
+text = "Unequip"
+
+[node name="ItemLevel" type="Label" parent="action_keys_hold"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.749
+anchor_right = 0.749
+offset_left = -11.5257
+offset_right = 11.4743
+offset_bottom = 15.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 9
+
+[node name="Integrity" type="Label" parent="action_keys_hold"]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -13.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 9
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 25.0
+offset_bottom = 25.0
+scale = Vector2(0.6, 0.519124)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_edttc")
+metadata/_edit_use_anchors_ = true
+
+[node name="SpritePlaceHolder" type="Node2D" parent="."]
+position = Vector2(7, 7)
+
+[node name="in_crafting_keys" parent="." instance=ExtResource("2_o1l4l")]
+visible = false
+visibility_layer = 2
+offset_left = -37.0
+offset_top = -50.0
+offset_right = 61.0
+offset_bottom = 4.0
+scale = Vector2(0.994714, 1.00508)
+
+[connection signal="mouse_entered" from="action_keys_hold/ButtonUnequip" to="." method="_on_button_unequip_mouse_entered"]
+[connection signal="mouse_exited" from="action_keys_hold/ButtonUnequip" to="." method="_on_button_unequip_mouse_exited"]
+[connection signal="pressed" from="action_keys_hold/ButtonUnequip" to="." method="_on_button_unequip_pressed"]

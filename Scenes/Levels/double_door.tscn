@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmvrh4nbip0g8"]
+
+[ext_resource type="Texture2D" uid="uid://dtdkhh213kg3u" path="res://Images/assets_and_levels/MetalDoubleDoors.png" id="1_lrmo1"]
+[ext_resource type="Script" path="res://Scripts/Levels/door.gd" id="1_y1132"]
+[ext_resource type="AudioStream" uid="uid://casuqqc511lvl" path="res://SoundFX/mechanical2.wav" id="3_lxhlt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hb7qg"]
+size = Vector2(74, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4d2d"]
+size = Vector2(63, 17)
+
+[node name="Door" type="Node2D"]
+script = ExtResource("1_y1132")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 524288
+collision_mask = 524288
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(-1, 5)
+shape = SubResource("RectangleShape2D_hb7qg")
+
+[node name="Door" type="StaticBody2D" parent="."]
+
+[node name="Door" type="Sprite2D" parent="Door"]
+z_index = 3
+texture = ExtResource("1_lrmo1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2(0, 15)
+shape = SubResource("RectangleShape2D_d4d2d")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lxhlt")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

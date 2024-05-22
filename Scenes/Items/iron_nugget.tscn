@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dy148qvt6okwm"]
+
+[ext_resource type="Script" path="res://Scripts/Items/InventoryBody/iron_nugget.gd" id="1_1t7b1"]
+[ext_resource type="Texture2D" uid="uid://cb4ejt04f1vsr" path="res://Images/equipments_and_items/iron_nugget.png" id="1_dxemk"]
+[ext_resource type="Texture2D" uid="uid://cu31n7771w4ig" path="res://Images/hud/info.png" id="1_jxqht"]
+[ext_resource type="AudioStream" uid="uid://ci5wilun4cc2u" path="res://SoundFX/magical_1.ogg" id="4_m18fy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mk7jd"]
+size = Vector2(26, 20)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_77wib"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="IronNugget" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_1t7b1")
+
+[node name="IronNugget" type="Sprite2D" parent="."]
+texture = ExtResource("1_dxemk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mk7jd")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_77wib")
+
+[node name="Info" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, -17)
+texture = ExtResource("1_jxqht")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_m18fy")

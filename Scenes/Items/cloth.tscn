@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://b7inlmsyt3wab"]
+
+[ext_resource type="Texture2D" uid="uid://ci814sqsxom6" path="res://Images/equipments_and_items/cloth.png" id="1_hhh4m"]
+[ext_resource type="Script" path="res://Scripts/Items/InventoryBody/cloth.gd" id="1_lqrbr"]
+[ext_resource type="Texture2D" uid="uid://cu31n7771w4ig" path="res://Images/hud/info.png" id="2_k4r4v"]
+[ext_resource type="AudioStream" uid="uid://cd4k12lbj5gdv" path="res://SoundFX/sword.10.ogg" id="3_3xtaa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rfyg"]
+size = Vector2(26, 12)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_77psb"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="Cloth" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_lqrbr")
+
+[node name="Cloth" type="Sprite2D" parent="."]
+texture = ExtResource("1_hhh4m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1rfyg")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_77psb")
+
+[node name="Info" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, -17)
+texture = ExtResource("2_k4r4v")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3xtaa")

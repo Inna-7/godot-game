@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://58xefbj1xr0b"]
+
+[ext_resource type="Script" path="res://Scripts/Items/fireball.gd" id="1_p1ynt"]
+[ext_resource type="Texture2D" uid="uid://ckm26sdwhw7vd" path="res://Images/equipments_and_items/magic_basic_cast.png" id="2_q1uir"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b3uuj"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_numvv"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, -200), 0.0, 0.0, 0, 0, Vector2(0.178322, 87.2728), 0.0, 0.0, 0, 0, Vector2(1, 200), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_l4a65"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.0769231, 1), 0.0, 0.0, 0, 0, Vector2(0.237762, 0.518182), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_w6ard"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="MagicCast" type="Node2D"]
+script = ExtResource("1_p1ynt")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_b3uuj")
+amount = 20
+randomness = 1.0
+texture = ExtResource("2_q1uir")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+angular_velocity_min = 40.0
+angular_velocity_max = 80.0
+linear_accel_curve = SubResource("Curve_numvv")
+scale_amount_curve = SubResource("Curve_l4a65")
+anim_speed_min = 1.0
+anim_speed_max = 2.0
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_w6ard")

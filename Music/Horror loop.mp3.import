@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://4wikpxcfk882"
+path="res://.godot/imported/Horror loop.mp3-a92cfbb86ee5ad41db95fab84e4f4626.mp3str"
+
+[deps]
+
+source_file="res://Music/Horror loop.mp3"
+dest_files=["res://.godot/imported/Horror loop.mp3-a92cfbb86ee5ad41db95fab84e4f4626.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

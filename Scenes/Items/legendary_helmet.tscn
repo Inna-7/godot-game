@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://boiqqwmd3ofgm"]
+
+[ext_resource type="Script" path="res://Scripts/Items/InventoryBody/legendary_helmet.gd" id="1_g2axo"]
+[ext_resource type="Texture2D" uid="uid://cu31n7771w4ig" path="res://Images/hud/info.png" id="2_qhnoe"]
+[ext_resource type="Texture2D" uid="uid://57lla5m52ele" path="res://Images/equipments_and_items/Legendary_standard_helmet_small.png" id="2_rouyj"]
+[ext_resource type="AudioStream" uid="uid://bknvqdmtf8r5m" path="res://SoundFX/magical_2.ogg" id="3_txnme"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pc6yt"]
+size = Vector2(16, 16)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_wydt5"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="LegendaryHelmet" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_g2axo")
+
+[node name="Helmet" type="Sprite2D" parent="."]
+texture = ExtResource("2_rouyj")
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pc6yt")
+
+[node name="Info" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -19)
+texture = ExtResource("2_qhnoe")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_wydt5")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_txnme")

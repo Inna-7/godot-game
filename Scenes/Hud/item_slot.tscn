@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://ugm3omfgg482"]
+
+[ext_resource type="Script" path="res://Scripts/item_slot.gd" id="1_f6pvj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hfgh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apk6b"]
+bg_color = Color(0.0313726, 0.262745, 0.215686, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lrrtd"]
+bg_color = Color(0.247059, 0.0666667, 0.776471, 0.909804)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 3
+shadow_color = Color(0.137255, 0.839216, 0.964706, 0.870588)
+shadow_size = 1
+
+[node name="item_slot" type="Panel" groups=["slots"]]
+offset_right = 25.0
+offset_bottom = 25.0
+mouse_force_pass_scroll_events = false
+theme_override_styles/panel = SubResource("StyleBoxFlat_4hfgh")
+script = ExtResource("1_f6pvj")
+
+[node name="text_info" type="Label" parent="."]
+layout_mode = 0
+offset_left = -54.0
+offset_top = 50.0
+offset_right = 206.0
+offset_bottom = 102.0
+scale = Vector2(0.632904, 0.860596)
+
+[node name="Panel" type="Panel" parent="text_info"]
+visible = false
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.348
+anchor_top = -0.454
+anchor_right = 0.637
+anchor_bottom = 0.715
+offset_right = 260.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_apk6b")
+
+[node name="border" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_lrrtd")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

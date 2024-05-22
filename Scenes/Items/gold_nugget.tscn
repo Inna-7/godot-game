@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://da1ls1x1cjhb6"]
+
+[ext_resource type="Script" path="res://Scripts/Items/InventoryBody/gold_nugget.gd" id="1_umo1l"]
+[ext_resource type="Texture2D" uid="uid://dsf7kdb03teep" path="res://Images/equipments_and_items/gold_nugget.png" id="2_bodkv"]
+[ext_resource type="Texture2D" uid="uid://cu31n7771w4ig" path="res://Images/hud/info.png" id="3_v858d"]
+[ext_resource type="AudioStream" uid="uid://ci5wilun4cc2u" path="res://SoundFX/magical_1.ogg" id="4_5m0xk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1rfyg"]
+size = Vector2(26, 20)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_77psb"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="GoldNugget" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_umo1l")
+
+[node name="GoldNugget" type="Sprite2D" parent="."]
+texture = ExtResource("2_bodkv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1rfyg")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_77psb")
+
+[node name="Info" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, -17)
+texture = ExtResource("3_v858d")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_5m0xk")

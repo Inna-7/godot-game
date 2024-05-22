@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://fkp4pw5xcehp"]
+
+[ext_resource type="Script" path="res://Scripts/Items/InventoryBody/abundant_dagger.gd" id="1_qe3v2"]
+[ext_resource type="Texture2D" uid="uid://caf0gd7n4fsoh" path="res://Images/equipments_and_items/abundant_dagger.png" id="2_6nmcg"]
+[ext_resource type="Texture2D" uid="uid://cu31n7771w4ig" path="res://Images/hud/info.png" id="3_sxohr"]
+[ext_resource type="AudioStream" uid="uid://bknvqdmtf8r5m" path="res://SoundFX/magical_2.ogg" id="4_if5ip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnu0i"]
+size = Vector2(14, 14)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_5e47w"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="AbundantDagger" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_qe3v2")
+
+[node name="AbundantDagger" type="Sprite2D" parent="."]
+texture = ExtResource("2_6nmcg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_hnu0i")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_5e47w")
+
+[node name="Info" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, -17)
+texture = ExtResource("3_sxohr")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_if5ip")

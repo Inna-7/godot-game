@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2j8itspnsea7"
+path="res://.godot/imported/Cemetery 8bit theme.mp3-de00a3fa87f32ea15e2fc677e74698dc.mp3str"
+
+[deps]
+
+source_file="res://Music/Cemetery 8bit theme.mp3"
+dest_files=["res://.godot/imported/Cemetery 8bit theme.mp3-de00a3fa87f32ea15e2fc677e74698dc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

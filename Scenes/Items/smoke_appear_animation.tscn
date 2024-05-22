@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://42pt74oo8ox6"]
+
+[ext_resource type="Texture2D" uid="uid://b66wrgum2qkt4" path="res://Images/equipments_and_items/SmokeFrames.png" id="1_43txc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ocmb6"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[node name="SmokeAppearAnimation" type="CPUParticles2D"]
+material = SubResource("CanvasItemMaterial_ocmb6")
+amount = 64
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 1.0
+texture = ExtResource("1_43txc")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 40.0
+initial_velocity_max = 80.0
+angular_velocity_min = 40.0
+angular_velocity_max = 80.0
+linear_accel_min = 40.0
+linear_accel_max = 80.0
+radial_accel_min = 40.0
+radial_accel_max = 80.0
+tangential_accel_min = 40.0
+tangential_accel_max = 80.0
+angle_max = 180.0
+scale_amount_max = 5.0

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://4dyicmi0sgej"
+path="res://.godot/imported/The Battle of Atheria.ogg-133474dd30189af91d0775d949d5240b.oggvorbisstr"
+
+[deps]
+
+source_file="res://Music/The Battle of Atheria.ogg"
+dest_files=["res://.godot/imported/The Battle of Atheria.ogg-133474dd30189af91d0775d949d5240b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

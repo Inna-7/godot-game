@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckw0ay71nla0x"]
+
+[ext_resource type="Script" path="res://Scripts/flashing_text.gd" id="1_tvlp1"]
+
+[sub_resource type="Animation" id="Animation_vvpxf"]
+resource_name = "scale_up"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.270588, 1, 0.282353, 1), Color(1, 1, 1, 1), Color(0.270588, 1, 0.282353, 1), Color(1, 1, 1, 1), Color(0.270588, 1, 0.282353, 1), Color(1, 1, 1, 1), Color(0.270588, 1, 0.282353, 1), Color(1, 1, 1, 1), Color(0.270588, 1, 0.282353, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rp5nx"]
+_data = {
+"scale_up": SubResource("Animation_vvpxf")
+}
+
+[node name="FlashingText" type="Node2D"]
+scale = Vector2(1e-05, 1e-05)
+script = ExtResource("1_tvlp1")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_font_sizes/normal_font_size = 8
+fit_content = true
+scroll_active = false
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_font_sizes/normal_font_size = 8
+fit_content = true
+scroll_active = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rp5nx")
+}

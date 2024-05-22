@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvocqwgvg6qa6"]
+
+[ext_resource type="Texture2D" uid="uid://bt8vottik3rmx" path="res://Images/hud/hand.png" id="1_nj28o"]
+
+[node name="RightHand" type="Node2D"]
+
+[node name="Hand" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_nj28o")
+flip_h = true

@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci4hmqout51m4"]
+
+[ext_resource type="Texture2D" uid="uid://ccg25oestdc3f" path="res://Images/assets_and_levels/ship1.png" id="1_0g00l"]
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Ship1" type="Sprite2D" parent="."]
+scale = Vector2(0.779279, 0.932432)
+texture = ExtResource("1_0g00l")
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+visible = false
+scale = Vector2(0.779279, 0.932432)
+polygon = PackedVector2Array(6, -93.1, 6, -90.5, 34.1, -42, 34.8, -42, 96, 19.2, 96, 25, 93.5, 25, 84, 30.4, 84, 27.2, 63.9, 17.9, 85, 38.1, 85, 42.8, 79.8, 48, 74.6, 48, 29, 30.9, 29, 34.1, 25.8, 62, 24.3, 62, 14, 83.5, 14, 85.6, 18.9, 99, 15.5, 99, 3.5, 106, -3.5, 106, -18, 98.2, -18, 94.7, -14.6, 84.4, -26, 60.5, -26, 54, -28.8, 30, -29.6, 30, -74.6, 48, -79.8, 48, -85, 42.8, -85, 38.2, -64.6, 17.8, -85.5, 29, -91.2, 29, -97.4, 18, -93.8, 18, -35, -40.8, -35, -42.6, -3, -94.5, -3, -96.2, -1, -97.3)

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://b07o8ovelre22"]
+
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_od2q8"]
+[ext_resource type="PackedScene" uid="uid://c0fec6vq5gca7" path="res://Scenes/Hud/hud.tscn" id="2_vpjyq"]
+[ext_resource type="Script" path="res://Scripts/scene_wrapper.gd" id="3_jw1mw"]
+[ext_resource type="PackedScene" uid="uid://csn7d5hfqsns3" path="res://Scenes/Hud/title_screen.tscn" id="3_yl5sh"]
+[ext_resource type="Script" path="res://Scripts/Camera.gd" id="4_v2ogg"]
+[ext_resource type="PackedScene" uid="uid://cm7i7eat6gmdr" path="res://Scenes/Levels/magor_atmosphere.tscn" id="6_njlj5"]
+
+[node name="Game" type="Node"]
+script = ExtResource("1_od2q8")
+
+[node name="TitleScreen" parent="." instance=ExtResource("3_yl5sh")]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
+
+[node name="HUD" parent="." instance=ExtResource("2_vpjyq")]
+visible = false
+
+[node name="SceneWrapper" type="Node2D" parent="."]
+visible = false
+script = ExtResource("3_jw1mw")
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="SceneWrapper"]
+_spawnable_scenes = PackedStringArray("res://Scenes/Characters/female_grey_alien.tscn", "res://Scenes/Characters/female_human.tscn", "res://Scenes/Characters/female_little_green_person.tscn", "res://Scenes/Characters/female_nordic.tscn", "res://Scenes/Characters/female_reptilian.tscn", "res://Scenes/Characters/male_grey_alien.tscn", "res://Scenes/Characters/male_human.tscn", "res://Scenes/Characters/male_little_green_person.tscn", "res://Scenes/Characters/male_nordic.tscn", "res://Scenes/Characters/male_reptilian.tscn")
+spawn_path = NodePath("../Players")
+
+[node name="Camera" type="Camera2D" parent="SceneWrapper"]
+position = Vector2(320, 240)
+ignore_rotation = false
+script = ExtResource("4_v2ogg")
+MAX_DISTANCE = 320.0
+
+[node name="MagorAtmosphere" parent="SceneWrapper/Camera" instance=ExtResource("6_njlj5")]
+visible = false
+
+[node name="Players" type="Node2D" parent="SceneWrapper"]
+z_index = 1

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8ldxped8hm3i"]
+
+[ext_resource type="Script" path="res://Scripts/Items/InventoryBody/common_sword.gd" id="1_fhvm2"]
+[ext_resource type="Texture2D" uid="uid://cu31n7771w4ig" path="res://Images/hud/info.png" id="1_uotn3"]
+[ext_resource type="Texture2D" uid="uid://d15sscwv18skd" path="res://Images/equipments_and_items/common_sword.png" id="2_3rj7w"]
+[ext_resource type="AudioStream" uid="uid://bknvqdmtf8r5m" path="res://SoundFX/magical_2.ogg" id="2_hef7y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lqfq4"]
+size = Vector2(18, 18)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_51akx"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="CommonSword" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_fhvm2")
+
+[node name="CommonSword" type="Sprite2D" parent="."]
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("2_3rj7w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lqfq4")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_51akx")
+
+[node name="Info" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(0, -16)
+texture = ExtResource("1_uotn3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_hef7y")

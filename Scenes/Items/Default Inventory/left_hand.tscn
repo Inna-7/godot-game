@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnvnutjxn04ns"]
+
+[ext_resource type="Texture2D" uid="uid://bt8vottik3rmx" path="res://Images/hud/hand.png" id="1_aqnuy"]
+
+[node name="LeftHand" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("1_aqnuy")

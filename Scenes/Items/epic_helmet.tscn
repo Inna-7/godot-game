@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnqgsntg8mab"]
+
+[ext_resource type="AudioStream" uid="uid://bknvqdmtf8r5m" path="res://SoundFX/magical_2.ogg" id="1_6svix"]
+[ext_resource type="Texture2D" uid="uid://cu31n7771w4ig" path="res://Images/hud/info.png" id="1_aquno"]
+[ext_resource type="Script" path="res://Scripts/Items/InventoryBody/epic_helmet.gd" id="1_ypxq0"]
+[ext_resource type="Texture2D" uid="uid://ct57ygjaf8hpj" path="res://Images/equipments_and_items/epic_standard_helmet_small.png" id="2_yj8nm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nddvl"]
+size = Vector2(16, 16)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ofygh"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="EpicHelmet" type="StaticBody2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_ypxq0")
+
+[node name="Helmet" type="Sprite2D" parent="."]
+texture = ExtResource("2_yj8nm")
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nddvl")
+
+[node name="Info" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -19)
+texture = ExtResource("1_aquno")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_ofygh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_6svix")
